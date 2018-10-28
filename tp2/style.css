@@ -1,0 +1,23 @@
+
+
+#error{
+    margin-top: 20px;
+    background-color: pink;
+    padding : 5px;
+    border: 1px solid black;
+}
+
+#resultat{
+    color: white;
+    background-color: green;
+    padding: 5px;
+}
+
+form{
+    background-color: white ;
+}
+
+#bouton{
+margin: 2px;
+margin-left: 100%;
+}
