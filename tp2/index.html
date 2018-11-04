@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="style.css" />
         <script type="text/javascript" src="formulaire.js"></script>
-        <script type="text/javascript" src="champsinvvlide.js"></script>
+        
 
         <style>
           body{
@@ -31,47 +31,47 @@
             
         <h1>Saisie d'une fiche "personne"</h1>
 
- <form name="personne">
-    <fieldset>
-        <legend> Saisie d'une fiche "personne" : </legend>
-     <table>
-            
-    <tr>
-       <td><label for="nom">Nom :</label></td>
-       <td> <input type="text" id = "nom" name="nom" minlength="5" maxlength="20"/></td>
-    </tr>
+        <form name="personne">
+            <fieldset>
+                <legend> Saisie d'une fiche "personne" : </legend>
+                <table>
+                            
+                    <tr>
+                         <td><label for="nom">Nom :</label></td>
+                         <td> <input type="text" id = "nom" name="nom" minlength="5" maxlength="20"/></td>
+                    </tr>
 
-    <tr>
-       <td><label for="prenom">Prénom :</label></td>
-        <td> <input type="text"  id = "prenom" minlength="5" maxlength="20"/></td>
-    </tr>
+                    <tr>
+                         <td><label for="prenom">Prénom :</label></td>
+                         <td> <input type="text"  id = "prenom" minlength="5" maxlength="20"/></td>
+                    </tr>
 
-    <tr>
-       <td><label for="date de naissance">Date de naissance :</label></td>
-       <td ><input type="date" id = "dn" placeholder="JJ/MM/AAAA" /></td>
-    </tr>
+                    <tr>
+                         <td><label for="date de naissance">Date de naissance :</label></td>
+                         <td ><input type="date" id = "dn" placeholder="JJ/MM/AAAA" /></td>
+                    </tr>
 
-    <tr>
-       <td><label for="adresse">Adresse :</label></td>
-       <td> <input type="text"  id = "adresse" minlength="5" maxlength="50"/></td>
-    </tr>
+                    <tr>
+                         <td><label for="adresse">Adresse :</label></td>
+                         <td> <input type="text"  id = "adresse" minlength="5" maxlength="50"/></td>
+                    </tr>
+                    
+                    <tr>
+                         <td> <label for="mail">Mail :</label></td>
+                         <td> <input type="email" id = "mail" minlength="5" maxlength="30" /></td>
+                    </tr>
+
+                    <tr>
+                         <td><input type="button" id = "bouton" value="Valider" onclick="validation()"/></td>
+                    </tr>
+                
+                </table>
+            </fieldset>
+        </form>
+
+      <div id="error"> </div> 
     
-    <tr>
-       <td> <label for="mail">Mail :</label></td>
-       <td> <input type="email" id = "mail" minlength="5" /></td>
-    </tr>
-
-    <tr>
-       <td><input type="button" id = "bouton" value="Valider" onclick="validation()"/></td>
-    </tr>
-    
-    </table>
-    </fieldset>
-</form>
-
-    <div id="error"> </div> 
-    
-    <div id="resultat"> </div>
+      <div id="resultat"> </div>
 
     </body>
     
