@@ -7,39 +7,39 @@ $( document ).ready(function() {
 
                 valid = true ;
                 if($("#nom").val() == "" ){
-                    $("#nom").css("border-color","#ff0000");
+                    $("#nom").addClass("is-invalid");
                     valid=false;
                 }
                 else{
-                    $("#nom").css("border-color","#48DE14");
+                    $("#nom").addClass("is-valid");
                 }
                 if($("#prenom").val() == "" ){
-                    $("#prenom").css("border-color","#ff0000");
+                    $("#prenom").addClass("is-invalid");
                     valid=false;
                 }
                 else{
-                    $("#prenom").css("border-color","#48DE14");
+                    $("#prenom").addClass("is-valid");
                 }
                 if($("#date").val() == "" ){
-                    $("#date").css("border-color","#ff0000");
+                    $("#date").addClass("is-invalid");
                     valid=false;
                 }
                 else{
-                    $("#date").css("border-color","#48DE14");
+                    $("#date").addClass("is-valid");
                 }
                 if($("#adresse").val() == "" ){
-                    $("#adresse").css("border-color","#ff0000");
+                    $("#adresse").addClass("is-invalid");
                     valid=false;
                 }
                 else{
-                    $("#adresse").css("border-color","#48DE14");
+                    $("#adresse").addClass("is-valid");
                 }
                 if($("#mail").val() == "" ){
-                    $("#mail").css("border-color","#ff0000");
+                    $("#mail").addClass("is-invalid");
                     valid=false;
                 }
                 else{
-                    $("#mail").css("border-color","#48DE14");
+                    $("#mail").addClass("is-valid");
                 }
 
                 return valid;
@@ -47,17 +47,20 @@ $( document ).ready(function() {
             });
 
 
-    $("#envoyer").click(function(){
-
+    $("#formulaire").submit(function(event){
+event.preventDefault();
          if($("#nom").val() !== "" && $("#prenom").val() !== "" && $("#date").val() !== "" 
          && $("#adresse").val() !== "" && $("#mail").val() !== "" ){
             
               $("#myModal").modal("show");
-              $(".modal-title").html("Bienvenue");
+              $(".modal-body").html('\<a href="https://www.google.com/maps/place/Paris/@48.8587741,2.2069771,11z/data=!3m1!4b1!4m5!3m4!1s0x47e66e1f06e2b70f:0x40b82c3688c9460!8m2!3d48.856614!4d2.3522219"\>\<img src="staticmap.png" \>\<\/a\>');
+              
+              $(".modal-title").text("Bienvenue" );
                 
         }
 
     });
+    
     
 
 });
