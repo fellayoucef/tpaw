@@ -6,8 +6,9 @@ var jour = d.getDate();
 var année = d.getFullYear();
 var jourcourant = jour + '/' + mois + '/' + année;
 
-    $("#dn").datepicker({dateFomat: 'dd/mm/yy',
-    maxDate: 'jourcourant'
+    $("#dn").datepicker({
+        dateFomat: "dd/mm/yy",
+        maxDate: "jourcourant"
 
 });
 });
