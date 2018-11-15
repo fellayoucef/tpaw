@@ -6,7 +6,7 @@ $( document ).ready(function() {
     
      //ajout du compteur de nombre de caractéres pour chaque champ
             $(document).keyup(function(){
-
+// ajout des compteurs de caractére a coté de chaque champs de saisie 
     var nombreCaractere = $("#nom").val().length;
     var msg = '|' + " " + nombreCaractere + ' Caractere(s)';
     $('#compteur1').text(msg);
@@ -27,7 +27,7 @@ $( document ).ready(function() {
     var msg = '|' + " "+ nombreCaractere + ' Caractere(s)';
     $('#compteur5').text(msg);
 
-    // validation des champs avec un minimum de 5 caractéres
+    // validation des champs avec un minimum de 5 
     
 
                 valid = true ;
@@ -72,18 +72,36 @@ $( document ).ready(function() {
             });
 
 
-    $("#formulaire").submit(function (event) { 
-        event.preventDefault();
-        
-    
-         if($("#nom").val() !== "" && $("#prenom").val() !== "" && $("#dn").val() !== "" 
-         && $("#adresse").val() !== "" && $("#mail").val() !== "" ){
-            
-           
+            $("#formulaire").on("submit",function store(event) { 
+                event.preventDefault();
                 
-        }
-        
-    });
+                    var inputNom= document.getElementById("nom");
+                    var inputPrenom= document.getElementById("prenom");
+                    var inputDn= document.getElementById("dn");
+                    var inputAdresse= document.getElementById("adresse");
+                    var inputEmail= document.getElementById("mail");
+                    
+                    if($("#nom").val() !== "" && $("#prenom").val() !== "" && $("#dn").val() !== "" 
+                  && $("#adresse").val() !== "" && $("#mail").val() !== "" ){
+                    
+                    //stocker les valeurs saisie dans le navigateur
+                    localStorage.setItem("nom", inputNom.value);
+                    localStorage.setItem("prenom", inputPrenom.value);
+                    localStorage.setItem("dn", inputDn.value);
+                    localStorage.setItem("adresse", inputAdresse.value);
+                    localStorage.setItem("mail", inputEmail.value);
+                   $('#success').addClass("alert alert-success").text("Bravo! le formulaire est sauvegardé.");
+                   
+                   // ajout des valuer saisie dans le tableau
+                   document.querySelector("table tbody").innerHTML = document.querySelector("table tbody")
+                   .innerHTML +'<tr><td>'+localStorage.getItem("nom")+'</td><td>'+localStorage.getItem("prenom")+
+                   '</td><td>'+localStorage.getItem("dn")+'</td><td>'+localStorage.getItem("adresse")+'</td><td>'
+                    +localStorage.getItem("mail")+'</td>';
+                   }
+                  
+            });
+            
+
     
 
 });

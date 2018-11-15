@@ -1,4 +1,5 @@
-var contactStore = (function () {
+
+  var contactStore = (function () {
     
     // variable privée
     var contactList = [];
