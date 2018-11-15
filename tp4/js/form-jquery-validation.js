@@ -92,11 +92,15 @@ $( document ).ready(function() {
                     localStorage.setItem("mail", inputEmail.value);
                    $('#success').addClass("alert alert-success").text("Bravo! le formulaire est sauvegardé.");
                    
-                   // ajout des valuer saisie dans le tableau
+                   // ajout des valeurs saisie dans le tableau
                    document.querySelector("table tbody").innerHTML = document.querySelector("table tbody")
-                   .innerHTML +'<tr><td>'+localStorage.getItem("nom")+'</td><td>'+localStorage.getItem("prenom")+
-                   '</td><td>'+localStorage.getItem("dn")+'</td><td>'+localStorage.getItem("adresse")+'</td><td>'
-                    +localStorage.getItem("mail")+'</td>';
+                   .innerHTML +'<tr><td>'+localStorage.getItem("nom")+'</td><td>'+localStorage.getItem("prenom")
+                   
+                  
+                   +'</td><td>'+localStorage.getItem("dn")+'</td><td><a href="https://maps.google.com/maps?q='
+                   +localStorage.getItem("adresse")+'">'+localStorage.getItem("adresse")
+                  
+                   +'</a></td><td><a href=mailto:>'+localStorage.getItem("mail")+'</a></td>';
                    }
                   
             });
