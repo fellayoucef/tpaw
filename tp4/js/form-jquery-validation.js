@@ -93,8 +93,8 @@ $( document ).ready(function() {
 
                    $('#success').addClass("alert alert-success").text("Bravo! le formulaire est sauvegardé.");
 
-                  // $("#tablee").show();
-
+                   $("#tablee").show();
+                   
                    // ajout des valeurs saisie dans le tableau
                    document.querySelector("table tbody").innerHTML = document.querySelector("table tbody")
                    .innerHTML +'<tr><td>'+localStorage.getItem("nom")+'</td><td>'+localStorage.getItem("prenom")
