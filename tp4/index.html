@@ -1,4 +1,4 @@
-<!doctype html>
+3<!doctype html>
 <html>
 
 <head>
@@ -21,8 +21,8 @@
 
     <!-- composants JS de boostrap (modal http://getbootstrap.com/docs/4.0/components/modal/ , collapse...) -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/form-jquery-validation.js"></script>
     <script src="js/gps.js"></script>
+    <script src="js/form-jquery-validation.js"></script>
     <script src="js/store.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -31,9 +31,7 @@
     
     
 
-    <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-    <!--<link rel="stylesheet" href="style.css">-->
-    <!--<script src="main.js"></script>-->
+   
 </head>
 
 <body>
@@ -71,7 +69,7 @@
                     <label for="inputAdresse" class="col-sm-2 col-form-label">Adresse :</label>
                 <input type="text" class="form-control" id ="adresse" placeholder="Adress"  aria-describedby="button-addon2">
                 <div class="input-group-append">
-                  <button class="btn btn-outline-warning" type="button" id="button-addon2" onclick="getLocation()">GPS</button>
+                  <button class="btn btn-outline-warning" type="button" id="bt-gps" >GPS</button>
                   <small id="compteur4"></small>
                 </div>
               </div>
@@ -97,7 +95,7 @@
        
 
         
-        <table class="table table-bordered" id="tablee" >
+        <table class="table table-bordered" id="tablee" style="display:none">
           <thead>
 
             <tr>

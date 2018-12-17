@@ -93,7 +93,7 @@ $( document ).ready(function() {
 
                    $('#success').addClass("alert alert-success").text("Bravo! le formulaire est sauvegardé.");
 
-                  // $("#tablee").show();
+                   $("#tablee").show();
                    
                    // ajout des valeurs saisie dans le tableau
                    document.querySelector("table tbody").innerHTML = document.querySelector("table tbody")
@@ -105,8 +105,12 @@ $( document ).ready(function() {
                   
                    +'</a></td><td><a href=mailto:>'+localStorage.getItem("mail")+'</a></td>';
                    }
-                  
+                   
             });
+            $("#bt-gps").on("click",function () { 
+            
+                getLocation();
+               });
             
 
     
