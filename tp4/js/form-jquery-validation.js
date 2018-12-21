@@ -72,7 +72,7 @@ $( document ).ready(function() {
             });
 
 
-            $("#formulaire").on("submit",function store(event) { 
+            $("#formulaire").on("submit",function storage(event) { 
                 event.preventDefault();
                 
                     var inputNom= document.getElementById("nom");
