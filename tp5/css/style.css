@@ -1,0 +1,29 @@
+
+        body{
+              background-color: #e9ebee;              
+              font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+              font-size: 16px;
+              margin: 0 auto;
+              max-width: 800px;  
+                 
+                       
+          }
+          form{
+              
+            margin-top: 10%;
+            margin-left: 50%;
+          }
+    .list-group{
+        margin-left: 50%;
+    }
+    h4{margin-left: 50%;}
+.card{
+    margin-left: 50%;
+    margin-bottom: 10%; 
+}
+.card-body{
+    margin-left: 0%;
+}
+.list-group-flush{
+    margin-left: 0%;
+}
