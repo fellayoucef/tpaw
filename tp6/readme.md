@@ -646,9 +646,7 @@ export class MeteoService {
 ```
 <div align="center">meteo-angular\src\app\services\meteo.service.ts</div>
 
-
-
-# 10. Créer le component MeteoDetailComponent
+éer le component MeteoDetailComponent
 
 Commande : 
 
@@ -695,6 +693,8 @@ export class MeteoDetailComponent implements OnInit {
   }
 
 }
+
+# 10. Cr
 ```
 <div align="center">app\meteo-detail\meteo-detail.component.ts</div>
 
