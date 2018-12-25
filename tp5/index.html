@@ -70,14 +70,14 @@
     </a>
 </ul>
 
-<div class="alert alert-primary" role="alert" v-if="cityList.length==0">
+<div class="alert alert-primary vide" role="alert" v-if="cityList.length==0">
     Aucune ville de saisie!
 </div>
 
 <!-- fin : Listing des villes -->
 
 <!-- meteo de la ville selectionnée -->
-<div v-if="cityWeatherLoading"> Chargement de la météo...</div>
+<div class='vide' v-if="cityWeatherLoading"> Chargement de la météo...</div>
 
 <div v-if="cityWeather">
 
