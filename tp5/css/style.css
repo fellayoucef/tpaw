@@ -11,10 +11,12 @@
                }
 
                i.fa-search-location {
+                 color: #5a6268;
                 font-size: 3em;
             }
           #my-button{
-            border: none;
+            
+            border-color: transparent;
             background-color: #8dd1d9;
             margin-top: 20px;
             margin-bottom: 20px;
@@ -22,12 +24,12 @@
 
           
          #card1{
-           
+           background-color: transparent;
+           border: none;
            margin-left: 109%;
            margin-top: -20%;
          }
 
-         
 
           #my-input {
             padding-left: 10px;
