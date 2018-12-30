@@ -1,28 +1,67 @@
 
            body{
+            
               background-color: #e9ebee;              
               font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
               font-size: 16px;
               margin: 0 auto;
-              max-width: 800px;            
+              max-width: 800px;    
+              background-image: url("../img/Fond.PNG");  
+              background-image: no-repeat;      
                }
 
-          form{ 
-            margin-top: 10%;
-            margin-left: 50%;
-              }
+               i.fa-search-location {
+                font-size: 3em;
+            }
+          #my-button{
+            border: none;
+            background-color: #8dd1d9;
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }     
 
-          .card{
-            margin-left: 50%;
-            margin-bottom: 10%; 
-               }
-
-         .list-group{ margin-left: 50%;}
+          
+         #card1{
            
-         h4{margin-left: 50%;}
+           margin-left: 109%;
+           margin-top: -20%;
+         }
 
-        .card-body{margin-left: 0%;}
+         
 
-        .vide{margin-left: 50%;}
-
-        .list-group-flush{margin-left: 0%;}
+          #my-input {
+            padding-left: 10px;
+            transform: scaleX(0);
+            opacity: 0;
+            transition: opacity .25s, transform .25s;
+            transform-origin: 0 0;
+          }
+          
+          #my-input.show {
+            transform: scaleX(1);
+            opacity: 1;
+          }
+          #hidelist{
+            padding-left: 10px;
+            transform: scaleX(0);
+            opacity: 0;
+            transition: opacity .25s, transform .25s;
+            transform-origin: 0 0;
+          }
+          #hidelist.show{
+            transform: scaleX(1);
+            opacity: 1;
+          }
+          .card-body{
+            margin-top: -20%;
+          }
+          .list-grop {
+            position: relative;
+            list-style:none;
+            margin-left: 20px;
+            padding-left:0;
+            }
+            li {
+            margin-bottom:15px;/* à adapter */
+            }
+            
