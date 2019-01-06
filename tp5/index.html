@@ -38,10 +38,10 @@
 </head>
 
 <body>
-        <button type="button"  id="my-button" value="Show text input"><i class="fas fa-search-location"></i></button>
+        <!-- <button type="button"  id="my-button" value="Show text input"><i class="fas fa-search-location"></i></button> -->
         
     <div id="weatherApp">
-  
+  <div id="sidenav">
         <!-- formulaire de saisie de ville -->
         <form v-on:submit="addCity" id="my-input">
             <div class="input-group">
@@ -78,35 +78,28 @@
         <div class="alert alert-primary vide" role="alert" v-if="cityList.length==0">
             Aucune ville de saisie!
         </div>
-
+    </div>
         <!-- fin : Listing des villes -->
 
         <!-- meteo de la ville selectionnée -->
         <div class='vide' v-if="cityWeatherLoading"> Chargement de la météo...</div>
 
-        <div v-if="cityWeather">
 
-            <div class="card" id="card1" style="width: 25rem;" v-if="cityWeather">
-                <div class="card-hader">
-                    {{cityWeather.name}}.{{ cityWeather.sys.country }} 
+        
+        <div v-if="cityWeather" id="meteo">
 
-                </div>
-                <img class="card-img-top" v-bind:src="'https://maps.googleapis.com/maps/api/staticmap?markers='+cityWeather.coord.lat+','+cityWeather.coord.lon+'&zoom=10&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg'"
-                    alt="Card image cap">
-
-                
-                
-               
             
-            </div>
-            <div class="card2" style="width: 25rem;" v-if="cityWeather"></div>
 
+            
+          
             <div class="card-body">
+                    <h3>{{cityWeather.name}}.{{ cityWeather.sys.country }}</h3> 
+                    <p class="card-text" style="text-transform: uppercase;">{{cityWeather.weather[0].description}}</p>
                     <h5 class="card-title">
-                        <i v-bind:class="'wi wi-owm-day-'+cityWeather.weather[0].id"></i>
-                       {{cityWeather.main.temp}} <i class="wi wi-celsius"></i>
+                        <i v-bind:class="'wi wi-owm-day-'+cityWeather.weather[0].id" id="icon"></i>
+                      <span id="celsius">  {{cityWeather.main.temp}} <i class="wi wi-celsius"></i></span>
                     </h5>
-                    <p class="card-text">{{cityWeather.weather[0].description}}</p>
+                  
                 </div>
             <ul class="list-grop">
                     <li class="list-grup-item fond">
@@ -131,7 +124,12 @@
 
                 </ul>
         </div>
+        <div  id="map" style="width: 25rem;" v-if="cityWeather">
+                
+                <img class="card-img-top" v-bind:src="'https://maps.googleapis.com/maps/api/staticmap?markers='+cityWeather.coord.lat+','+cityWeather.coord.lon+'&zoom=10&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg'"
+                    alt="Card image cap">
 
+            </div>
     </div>
 
 </body>

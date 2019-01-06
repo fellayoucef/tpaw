@@ -1,16 +1,8 @@
 
-
-
-
-
 var app;
 window.onload = function () {
     
-    document.getElementById('my-button').onclick = function() {
-        document.getElementById('my-input').classList.toggle('show');
-        document.getElementById('hidelist').classList.toggle('show');
-        
-    }
+    
     app = new Vue({
         el: '#weatherApp', // cible l'élement HTML où nous pourrons utiliser toutes les variables ci-dessous
         data: {
@@ -108,6 +100,9 @@ window.onload = function () {
                                 + ' (' + json.message + ')';
                         }
                     });
+
+
+                    
 
             }
 
