@@ -1,8 +1,4 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">🏠</li>
-  </ol>
-</nav>
+
 
 <form (ngSubmit)="onSubmit()">
   <div class="input-group">
@@ -35,7 +31,7 @@
 <ul class="list-group">
   <li *ngFor="let city of cityList"  class="list-group-item d-flex justify-content-between align-items-center">
     <a  routerLink="/meteo/{{city.name}}" class="d-block w-100">
-      {{city.name}}    
+      {{city.name}}
     </a>
     <button (click)="remove(city)" class="btn btn-secondary btn-sm pull-right" title="Supprimer de la liste">&times;</button>
   </li>
