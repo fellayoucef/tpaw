@@ -228,7 +228,7 @@ module.exports = "li{list-style:none;}\r\n\r\n.bleu{color:blue;\r\npadding-right
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- meteo de la ville selectionnée -->\n<div *ngIf=\"meteo && meteo.cod === 200\">\n\n  <nav aria-label=\"breadcrumb\">\n    <ol class=\"breadcrumb\">\n      <li class=\"breadcrumb-item\">\n        <a routerLink=\"/\">🏠</a>\n      </li>\n      <li class=\"breadcrumb-item active\" aria-current=\"page\">Météo pour {{meteo.name}}</li>\n    </ol>\n  </nav>\n\n\n  <div class=\"car\" style=\"width:300px; margin: 0 \" v-if=\"meteo\">\n    <div class=\"car-header\" style=\"text-transform: uppercase;\">\n      {{meteo.name}}.{{ meteo.sys.country }}\n    </div>\n<div>{{ meteo.dt * 1000 | date:'EEEE d LLL' }}</div>\n    <!-- <img class=\"car-img-top\" style=\"width:300px;\" src=\"https://maps.googleapis.com/maps/api/staticmap?markers={{meteo.coord.lat}},{{meteo.coord.lon}}&zoom=5&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg\"\n      alt=\"Card image cap\"> -->\n    <div class=\"card-body\">\n      <h3 class=\"car-title\">\n        {{meteo.main.temp}}&#8451;<br>\n        <img class=\"imgweather\" src=\"https://openweathermap.org/img/w/{{meteo.weather[0].icon}}.png\" alt=\"\" />\n\n      </h3>\n      <p class=\"card-text\" style=\"text-transform: uppercase;\">{{meteo.weather[0].description}}</p>\n    </div>\n    <ul class=\"list-group list-group-flush\">\n      <li class=\"list-group-item\">\n        <i class=\"wi wi-cloud\"></i> Nuage: {{meteo.clouds.all}} %\n      </li>\n      <li class=\"list-group-item\">\n          <i class=\"wi wi-rain\"></i> Humidité: {{meteo.main.humidity}} %\n      </li>\n      <li class=\"list-group-item\">\n        <i class=\"wi wi-windy\"></i> Vent: {{meteo.wind.speed}} km/h\n      </li>\n      <li class=\"list-group-item\">\n        <i class=\"wi wi-sunrise\"></i> Levé du soleil: {{ meteo.sys.sunrise * 1000 | date:'shortTime' }}\n      </li>\n      <li class=\"list-group-item\">\n        <i class=\"wi wi-sunset\"></i> Couché du soleil: {{ meteo.sys.sunset * 1000 | date:'shortTime' }}\n      </li>\n    </ul>\n  </div>\n</div>\n\n\n<div class=\"alert alert-danger\" *ngIf=\"meteo && meteo.cod !== 200\">\n\n  {{meteo.message}} (erreur {{meteo.cod}})\n</div>\n\n\n\n<div *ngIf=\"forecast && forecast.cod == 200\">\n\n\n<table class=\"table  \" v-if=\"forecast\">\n\n  <tr>\n\n    <td><ul>\n      <li>{{forecast.list[8].dt_txt | date: \"EEEE d\"}}</li>\n      <li><img class=\"icon\" src=\"https://openweathermap.org/img/w/{{forecast.list[8].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[8].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[8].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[8].weather[0].description}}</li>\n    </ul></td>\n\n    <td><ul>\n      <li>{{forecast.list[16].dt_txt | date: \"EEEE d\"}}</li>\n      <li><img class=\"icon\" src=\"https://openweathermap.org/img/w/{{forecast.list[16].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[16].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[16].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[16].weather[0].description}}</li>\n    </ul></td>\n\n    <td><ul>\n      <li>{{forecast.list[24].dt_txt | date: \"EEEE d\"}}</li>\n      <li ><img class=\"icon\" src=\"https://openweathermap.org/img/w/{{forecast.list[24].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[24].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[24].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[24].weather[0].description}}</li>\n    </ul></td>\n\n    <td><ul>\n      <li>{{forecast.list[32].dt_txt | date: \"EEEE d\"}}</li>\n      <li><img class=\"icon\" src=\"https://openweathermap.org/img/w/{{forecast.list[32].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[32].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[32].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[32].weather[0].description}}</li>\n    </ul></td>\n\n    <td><ul>\n      <li>{{forecast.list[39].dt_txt | date: \"EEEE d\"}}</li>\n      <li><img class=\"ico\" src=\"https://openweathermap.org/img/w/{{forecast.list[39].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[39].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[39].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[39].weather[0].description}}</li>\n    </ul></td>\n\n  </tr>\n\n</table>\n\n<div class=\"alert alert-danger\" *ngIf=\"forecasst && forecast.cod !== 200\">\n\n    {{forecast.message}} (erreur {{forecast.cod}})\n  </div>\n\n</div>\n\n<div class=\"graph\">\n  <jqxChart #myChart\n  [width]=\"getWidth()\" [height]=\"500\"\n\n\n  [showLegend]=\"false\" [enableAnimations]=\"true\" [padding]=\"padding\"\n  [titlePadding]=\"titlePadding\" [source]=\"sampleData\" [xAxis]=\"xAxis\"\n  [valueAxis]=\"valueAxis\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme05'\">\n</jqxChart>\n</div>\n\n\n\n\n<!-- <div class=\"forecast\" *ngFor=\"let forecast of forecast\">\n  <div class=\"day\">\n    <h2 class=\"date\">{{forecast.date | date: 'MMMMd'}}</h2>\n    <img src=\"https://openweathermap.org/img/w/{{forecast.img}}.png\">\n    <h2 class=\"description\">{{forecast.description}}</h2>\n    <h3 class=\"tempM\">{{forecast.temp}}&#8451;</i></h3>\n  </div>\n</div> -->\n\n"
+module.exports = "<!-- meteo de la ville selectionnée -->\n<div *ngIf=\"meteo && meteo.cod === 200\">\n\n  <nav aria-label=\"breadcrumb\">\n    <ol class=\"breadcrumb\">\n      <li class=\"breadcrumb-item\">\n        <a routerLink=\"/\">🏠</a>\n      </li>\n      <li class=\"breadcrumb-item active\" aria-current=\"page\">Météo pour {{meteo.name}}</li>\n    </ol>\n  </nav>\n\n\n  <div class=\"car\" style=\"width:300px; margin: 0 \" v-if=\"meteo\">\n    <div class=\"car-header\" style=\"text-transform: uppercase;\">\n      {{meteo.name}}.{{ meteo.sys.country }}\n    </div>\n<div>{{ meteo.dt * 1000 | date:'EEEE d LLL' }}</div>\n    <!-- <img class=\"car-img-top\" style=\"width:300px;\" src=\"https://maps.googleapis.com/maps/api/staticmap?markers={{meteo.coord.lat}},{{meteo.coord.lon}}&zoom=5&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg\"\n      alt=\"Card image cap\"> -->\n    <div class=\"card-body\">\n      <h3 class=\"car-title\">\n        {{meteo.main.temp}}&#8451;<br>\n        <img class=\"imgweather\" src=\"https://openweathermap.org/img/w/{{meteo.weather[0].icon}}.png\" alt=\"\" />\n\n      </h3>\n      <p class=\"card-text\" style=\"text-transform: uppercase;\">{{meteo.weather[0].description}}</p>\n    </div>\n    <ul class=\"list-group list-group-flush\">\n      <li class=\"list-group-item\">\n        <i class=\"wi wi-cloud\"></i> Nuage: {{meteo.clouds.all}} %\n      </li>\n      <li class=\"list-group-item\">\n          <i class=\"wi wi-rain\"></i> Humidité: {{meteo.main.humidity}} %\n      </li>\n      <li class=\"list-group-item\">\n        <i class=\"wi wi-windy\"></i> Vent: {{meteo.wind.speed}} km/h\n      </li>\n      <li class=\"list-group-item\">\n        <i class=\"wi wi-sunrise\"></i> Levé du soleil: {{ meteo.sys.sunrise * 1000 | date:'shortTime' }}\n      </li>\n      <li class=\"list-group-item\">\n        <i class=\"wi wi-sunset\"></i> Couché du soleil: {{ meteo.sys.sunset * 1000 | date:'shortTime' }}\n      </li>\n    </ul>\n  </div>\n</div>\n\n\n<div class=\"alert alert-danger\" *ngIf=\"meteo && meteo.cod !== 200\">\n\n  {{meteo.message}} (erreur {{meteo.cod}})\n</div>\n\n\n\n<div *ngIf=\"forecast && forecast.cod == 200\">\n\n\n<table class=\"table  \" v-if=\"forecast\">\n\n  <tr>\n\n    <td><ul>\n      <li>{{forecast.list[8].dt_txt | date: \"EEEE d\"}}</li>\n      <li><img class=\"icon\" src=\"https://openweathermap.org/img/w/{{forecast.list[8].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[8].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[8].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[8].weather[0].description}}</li>\n    </ul></td>\n\n    <td><ul>\n      <li>{{forecast.list[16].dt_txt | date: \"EEEE d\"}}</li>\n      <li><img class=\"icon\" src=\"https://openweathermap.org/img/w/{{forecast.list[16].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[16].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[16].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[16].weather[0].description}}</li>\n    </ul></td>\n\n    <td><ul>\n      <li>{{forecast.list[24].dt_txt | date: \"EEEE d\"}}</li>\n      <li ><img class=\"icon\" src=\"https://openweathermap.org/img/w/{{forecast.list[24].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[24].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[24].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[24].weather[0].description}}</li>\n    </ul></td>\n\n    <td><ul>\n      <li>{{forecast.list[32].dt_txt | date: \"EEEE d\"}}</li>\n      <li><img class=\"icon\" src=\"https://openweathermap.org/img/w/{{forecast.list[32].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[32].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[32].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[32].weather[0].description}}</li>\n    </ul></td>\n\n    <td><ul>\n      <li>{{forecast.list[39].dt_txt | date: \"EEEE d\"}}</li>\n      <li><img class=\"ico\" src=\"https://openweathermap.org/img/w/{{forecast.list[39].weather[0].icon}}.png\" alt=\"\" /></li>\n      <li> <span class=\"bleu\">{{forecast.list[39].main.temp_min}}&#8451;</span> <span class=\"rouge\">{{forecast.list[39].main.temp_max}}&#8451;</span></li>\n      <li>{{forecast.list[39].weather[0].description}}</li>\n    </ul></td>\n\n  </tr>\n\n</table>\n\n<div class=\"alert alert-danger\" *ngIf=\"forecasst && forecast.cod !== 200\">\n\n    {{forecast.message}} (erreur {{forecast.cod}})\n  </div>\n\n</div>\n\n<div class=\"graph\">\n  <jqxChart #myChart\n  [width]=\"getWidth()\" [height]=\"500\"\n\n\n  [showLegend]=\"false\" [enableAnimations]=\"true\" [padding]=\"padding\"\n  [title]=\"'3 Hour Day Forecast'\"\n  [description]=\"'previson météo de la journée'\"\n  [titlePadding]=\"titlePadding\" [source]=\"sampleData\" [xAxis]=\"xAxis\"\n  [valueAxis]=\"valueAxis\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme08'\">\n</jqxChart>\n</div>\n\n\n\n\n<!-- <div class=\"forecast\" *ngFor=\"let forecast of forecast\">\n  <div class=\"day\">\n    <h2 class=\"date\">{{forecast.date | date: 'MMMMd'}}</h2>\n    <img src=\"https://openweathermap.org/img/w/{{forecast.img}}.png\">\n    <h2 class=\"description\">{{forecast.description}}</h2>\n    <h3 class=\"tempM\">{{forecast.temp}}&#8451;</i></h3>\n  </div>\n</div> -->\n\n"
 
 /***/ }),
 
@@ -259,29 +259,31 @@ var MeteoDetailComponent = /** @class */ (function () {
         this.location = location;
         this.sampleData = [];
         this.xAxis = {
-            dataField: 'températures °C',
-            showGridLines: false,
+            dataField: "date",
+            showGridLines: false
         };
         this.valueAxis = {
-            showGridLines: false,
+            dataField: "temp",
+            showGridLines: false
         };
         this.seriesGroups = [
             {
-                type: 'area',
+                type: "area",
                 series: [
                     {
                         labels: {
                             backgroundOpacity: 0.2,
-                            borderOpacity: 0.3,
+                            borderOpacity: 0.3
                         }
                     },
+                    { dataField: "temp", displayText: "Température °C" }
                 ]
             }
         ];
     }
     MeteoDetailComponent.prototype.getWidth = function () {
         if (document.body.offsetWidth < 850) {
-            return '90%';
+            return "90%";
         }
         return 850;
     };
@@ -291,31 +293,37 @@ var MeteoDetailComponent = /** @class */ (function () {
     };
     MeteoDetailComponent.prototype.getMeteo = function () {
         var _this = this;
-        var name = this.route.snapshot.paramMap.get('name');
-        console.log('getmeteo', name);
-        this.meteoService.getMeteo(name)
-            .then(function (meteo) { return _this.meteo = meteo; })
-            .catch(function (fail) { return _this.meteo = fail; });
+        var name = this.route.snapshot.paramMap.get("name");
+        console.log("getmeteo", name);
+        this.meteoService
+            .getMeteo(name)
+            .then(function (meteo) { return (_this.meteo = meteo); })
+            .catch(function (fail) { return (_this.meteo = fail); });
     };
     MeteoDetailComponent.prototype.getFiveDaysForecast = function () {
         var _this = this;
-        var name = this.route.snapshot.paramMap.get('name');
-        console.log('getFiveDaysForecast', name);
-        this.meteoService.getFiveDaysForecast(name)
+        var name = this.route.snapshot.paramMap.get("name");
+        console.log("getFiveDaysForecast", name);
+        this.meteoService
+            .getFiveDaysForecast(name)
             .then(function (resp) {
             _this.forecast = resp;
-            _this.sampleData = resp.list.map(function (item) { return item.main.temp; }).slice(0, 8);
-            console.log('fore', _this.forecast);
-            console.log('values', _this.sampleData);
+            _this.sampleData = resp.list
+                .map(function (item) {
+                return { 'temp': item.main.temp, 'date': item.dt_txt };
+            })
+                .slice(0, 8);
+            console.log("fore", _this.forecast);
+            console.log("values", _this.sampleData);
         })
             .catch(function (fail) {
             _this.forecast = fail;
-            console.log('fore fail', _this.forecast);
+            console.log("fore fail", _this.forecast);
         });
     };
     MeteoDetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-meteo-detail',
+            selector: "app-meteo-detail",
             template: __webpack_require__(/*! ./meteo-detail.component.html */ "./src/app/meteo-detail/meteo-detail.component.html"),
             styles: [__webpack_require__(/*! ./meteo-detail.component.css */ "./src/app/meteo-detail/meteo-detail.component.css")]
         }),
